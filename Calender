@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
+int start(int);
+int main()
+{
+
+char * month[12] = {"January" , "February", "March" , "April" , "May" , "June"," July", "August" , "September" , "October" , "November","December"};
+int nod[12] = { 31,28,31,30,31,30,31,31,30,31,30,31};
+
+int year;
+printf("Enter the year:");
+scanf("%d", &year);
+//int sd= start(year);
+int sd =2;
+if((year %4 ==0 &&year %100 !=0 ) || year % 400 == 0)
+nod[1] =29;
+int i , j , k;
+   int wd = sd;
+
+for(i =0 ; i<12; i++)
+{
+  printf("---------------------------%s----------------------------",month[i]);
+  printf("\n       Sunday      Monday     Tuesday  Wednesday     Thursday      Friday    Saturday");
+  printf("\n");
+  sd =wd;
+  for(j=1; j<= nod[i] ; j++)
+    {   
+        for(k =0 ;k<sd;k++)
+         {printf("            ");
+         // wd++;
+         }
+          sd =0;
+         if(wd == 7)
+          {printf("\n");
+	       wd =0;
+	       }
+            wd++;
+
+	printf("%12d", j);
+    }
+    printf("\n");
+}    
+ return 0;
+ 
+}
+
+int start(
