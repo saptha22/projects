@@ -1,0 +1,114 @@
+import random
+
+def anyleft(board):
+	return len(board)
+
+def computermove(board,b,c):
+ m = random.sample(board,1)
+ m1= m.pop()
+ b[m1-1] = c
+ board.remove(m1)
+ return
+
+def drawboard(b):
+	 print(" {} | {} | {} ".format(b[0],b[1],b[2]))
+	 print(" {} | {} | {} ".format(b[3],b[4],b[5]))
+	 print(" {} | {} | {} ".format(b[6],b[7],b[8]))
+
+def playermove(board,b,p):
+ m = int(input())
+ b[m-1] = p
+ board.remove(m)
+ return;
+
+
+def checkwin(b,c,p):
+	if(b[0]== c and b[1]==c and b[2] == c):
+		print("Computer Won")
+		exit(0)
+	elif(b[3]==c and b[4]==c and b[5] == c):
+		print("Computer Won")
+		exit()
+	elif(b[6]==c and b[7]==c and b[8]== c):
+		print("Computer Won")
+		exit()
+	elif(b[0]==c and b[3]==c and b[6] == c):
+		print("Computer Won") 
+		exit()
+	elif(b[1]==c and b[4]==c and b[7]==c):
+		print("Computer Won")
+		exit()
+	elif(b[2]==c and b[5]==c and b[8] == c):
+		print("Computer Won")
+		exit()
+	elif(b[0]==c and b[4]==c and b[8] == c):
+		print("Computer Won")
+		exit()
+	elif(b[2]==c and b[4]==c and b[6] == c):
+		print("Computer Won")
+		exit()
+	elif(b[0]==p and b[1]==p and b[2] == p):
+		print("Player Won")
+		exit()
+	elif(b[3]==p and b[4]==p and b[5] == p):
+		print("Player Won")
+		exit()
+	elif(b[6]==p and b[7]==p and b[8]== p):
+		print("Player Won")
+		exit()
+	elif(b[0]==p and b[3]==p and b[6] == p):
+		print("Player Won") 
+		exit()
+	elif(b[1]==p and b[4]==p and b[7]==p):
+		print("Player Won")
+		exit()
+	elif(b[2]==p and b[5]==p and b[8] == p):
+		print("Player Won")
+		exit()
+	elif(b[0]==p and b[4]==p and b[8] == p):
+		print("Player Won")
+		exit()
+	elif(b[2]==p and b[4]==p and b[6] == p):
+		print("Player Won")
+		exit()
+
+def playtictac():
+   print("What would you like to be? X / O")
+   p = input()
+   if(p == 'X'):
+       c ='O'
+   else:
+       c ='X'
+	 
+   print("Would you like to go first? y/n")
+   ch = input()
+
+   if(ch == 'y'):
+        turn = 'p'
+   else:
+        turn = 'c'
+
+   board = [1,2,3,4,5,6,7,8,9]
+   b = [1,2,3,4,5,6,7,8,9]
+   
+   while(anyleft(board)):
+       drawboard(b)
+       print("-----------------")
+       if(turn=='p'):
+           playermove(board,b,p)
+           turn = 'c'
+       else:
+           computermove(board,b,c)
+           turn = 'p'
+           
+       checkwin(b,c,p)
+	
+
+
+
+   print("the game is a tie between the two players")
+
+
+
+
+playtictac()
