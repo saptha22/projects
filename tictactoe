@@ -1,44 +1,44 @@
 import random
 
-def anyleft(board):
+def anyleft(board):                    #checks if any moves are left
 	return len(board)
 
-def computermove(board,b,c):
+def computermove(board,b,c):     #Randomly computes a computer move
  m = random.sample(board,1)
  m1= m.pop()
  b[m1-1] = c
  board.remove(m1)
  return
 
-def drawboard(b):
+def drawboard(b):                                                #displays the game board
 	 print(" {} | {} | {} ".format(b[0],b[1],b[2]))
 	 print(" {} | {} | {} ".format(b[3],b[4],b[5]))
 	 print(" {} | {} | {} ".format(b[6],b[7],b[8]))
 
 def playermove(board,b,p):
- m = int(input())
+ m = int(input())                                         #takes the move of the player
  b[m-1] = p
  board.remove(m)
  return;
 
 
-def checkwin(b,c,p):
+def checkwin(b,c,p):					#checks whether the computer or the player won
 	if(b[0]== c and b[1]==c and b[2] == c):
 		print("Computer Won")
 		exit(0)
-	elif(b[3]==c and b[4]==c and b[5] == c):
+	elif(b[3]==c and b[4]==c and b[5] == c):       #checking row-wise
 		print("Computer Won")
 		exit()
 	elif(b[6]==c and b[7]==c and b[8]== c):
 		print("Computer Won")
 		exit()
-	elif(b[0]==c and b[3]==c and b[6] == c):
+	elif(b[0]==c and b[3]==c and b[6] == c):     #checking column-wise
 		print("Computer Won") 
 		exit()
 	elif(b[1]==c and b[4]==c and b[7]==c):
 		print("Computer Won")
 		exit()
-	elif(b[2]==c and b[5]==c and b[8] == c):
+	elif(b[2]==c and b[5]==c and b[8] == c):	#checking diagonally
 		print("Computer Won")
 		exit()
 	elif(b[0]==c and b[4]==c and b[8] == c):
@@ -72,7 +72,7 @@ def checkwin(b,c,p):
 		print("Player Won")
 		exit()
 
-def playtictac():
+def playtictac():					#begin playing the game
    print("What would you like to be? X / O")
    p = input()
    if(p == 'X'):
@@ -106,9 +106,10 @@ def playtictac():
 
 
 
-   print("the game is a tie between the two players")
+   print("the game is a tie between the two players")       #if neither of the players win
 
 
 
 
-playtictac()
+playtictac()                    #driver
+ 
